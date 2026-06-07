@@ -1,0 +1,39 @@
+body{
+    font-family: Arial, sans-serif;
+    padding: 30px;
+}
+
+/* Hover */
+.btn:hover{
+    background-color: blue;
+    color: white;
+}
+
+/* Active */
+.btn:active{
+    background-color: red;
+}
+
+/* Focus */
+input:focus{
+    border: 3px solid green;
+    outline: none;
+}
+
+/* Visited */
+a:visited{
+    color: purple;
+}
+
+/* Disabled */
+button:disabled{
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+}
+
+/* First Child */
+ul li:first-child{
+    color: red;
+    font-weight: bold;
+}

@@ -1,0 +1,33 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+
+#special {
+    color: white;
+    background-color: purple;
+    padding: 10px;
+}
+
+.note {
+    color: darkblue;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
+button {
+    background-color: black;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+}

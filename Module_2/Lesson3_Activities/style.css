@@ -1,0 +1,65 @@
+/* Typography */
+body{
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    background-color: #f4f4f4;
+}
+
+/* Text Shadow */
+h1{
+    text-align: center;
+    color: navy;
+    text-shadow: 3px 3px 5px gray;
+}
+
+/* Text Indent + Typography */
+.paragraph{
+    font-size: 20px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+    text-indent: 50px;
+}
+
+/* Text Transform */
+.uppercase{
+    text-transform: uppercase;
+    color: green;
+}
+
+/* Text Decoration */
+a{
+    text-decoration: underline;
+    font-size: 20px;
+    color: red;
+}
+
+/* Box Shadow */
+.box{
+    width: 250px;
+    padding: 20px;
+    margin-top: 30px;
+    background-color: white;
+
+    box-shadow: 5px 5px 15px gray;
+}
+
+/* Transform */
+.transform-box{
+    width: 150px;
+    height: 150px;
+    background-color: royalblue;
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 40px;
+
+    transition: 0.5s;
+}
+
+/* Transform on Hover */
+.transform-box:hover{
+    transform: rotate(20deg) scale(1.2);
+}

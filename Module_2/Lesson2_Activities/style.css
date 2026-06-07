@@ -1,0 +1,79 @@
+/* Background Example */
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+
+    /* Background Image */
+    background-image:url("https://images.unsplash.com/photo-1506744038136-46273834b3fb");
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+}
+
+.container{
+    text-align:center;
+    padding-top:50px;
+}
+
+h1{
+    color:white;
+    background-color:rgba(0,0,0,0.6);
+    display:inline-block;
+    padding:10px 20px;
+    border-radius:10px;
+}
+
+/* Gradient Example */
+.gradient-box{
+    width:300px;
+    height:150px;
+    margin:40px auto;
+
+    background:linear-gradient(to right, blue, purple, pink);
+
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+    line-height:150px;
+    border-radius:15px;
+}
+
+/* Animation Example */
+.animated-box{
+    width:100px;
+    height:100px;
+    background:red;
+
+    position:relative;
+
+    animation:moveBox 4s infinite;
+}
+
+/* Animation Keyframes */
+@keyframes moveBox{
+
+    0%{
+        left:0;
+        background:red;
+    }
+
+    25%{
+        left:200px;
+        background:blue;
+    }
+
+    50%{
+        left:400px;
+        background:green;
+    }
+
+    75%{
+        left:200px;
+        background:orange;
+    }
+
+    100%{
+        left:0;
+        background:red;
+    }
+}

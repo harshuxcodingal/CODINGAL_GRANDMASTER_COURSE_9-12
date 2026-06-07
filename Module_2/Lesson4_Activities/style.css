@@ -1,0 +1,52 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #0b0f2f;
+    color: white;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.container{
+    width: 600px;
+    margin: auto;
+}
+
+h1{
+    color: gold;
+}
+
+/* Normal Button */
+.join-btn{
+    background-color: royalblue;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+/* Hover Pseudo Class */
+.join-btn:hover{
+    background-color: orange;
+    transform: scale(1.1);
+}
+
+/* Active Pseudo Class */
+.join-btn:active{
+    background-color: red;
+}
+
+/* Focus Pseudo Class */
+input:focus{
+    border: 3px solid lime;
+    outline: none;
+    background-color: lightyellow;
+}
+
+/* Disabled Pseudo Class */
+button:disabled{
+    background-color: gray;
+    cursor: not-allowed;
+    opacity: 0.6;
+}

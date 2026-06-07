@@ -1,0 +1,35 @@
+body{
+    font-family: Arial, sans-serif;
+    padding: 30px;
+    background-color: #f4f4f4;
+}
+
+h1{
+    text-align: center;
+}
+
+/* Box Model Example */
+.box{
+
+    /* Content Area */
+    width: 300px;
+    height: 150px;
+
+    background-color: lightblue;
+
+    /* Padding */
+    padding: 20px;
+
+    /* Border */
+    border: 5px solid navy;
+
+    /* Margin */
+    margin: 40px auto;
+
+    /* Shadow */
+    box-shadow: 5px 5px 15px gray;
+
+    text-align: center;
+    line-height: 150px;
+    font-size: 20px;
+}

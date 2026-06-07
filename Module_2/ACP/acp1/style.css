@@ -1,0 +1,40 @@
+/* Body Styling */
+body{
+    background-color: lightgray;   /* Property: background-color */
+    font-family: Arial, sans-serif; /* Property: font-family */
+    text-align: center;             /* Property: text-align */
+}
+
+/* Heading Styling */
+h1{
+    color: blue;                    /* Property: color */
+    font-size: 40px;                /* Property: font-size */
+    text-transform: uppercase;      /* Property: text-transform */
+}
+
+/* Box Styling */
+.box{
+    width: 400px;                   /* Property: width */
+    height: 200px;                  /* Property: height */
+    background-color: white;
+    border: 3px solid black;        /* Property: border */
+    padding: 20px;                  /* Property: padding */
+    margin: 20px auto;              /* Property: margin */
+    box-shadow: 5px 5px 10px gray;  /* Property: box-shadow */
+}
+
+/* Paragraph Styling */
+p{
+    color: green;
+    font-size: 20px;
+    line-height: 1.5;               /* Property: line-height */
+}
+
+/* Button Styling */
+button{
+    background-color: orange;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 18px;
+}
