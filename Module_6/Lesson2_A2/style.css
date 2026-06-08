@@ -1,0 +1,49 @@
+/* Body Styling */
+body{
+    background: #2b2b2b;
+    font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+/* Projects Heading */
+#projects h1{
+    font-weight: 900;
+    font-family: "Roboto Slab", serif;
+}
+
+/* Bootstrap Card Customization */
+.card{
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.35);
+    transition: 0.3s;
+}
+
+/* Card Hover Effect */
+.card:hover{
+    transform: translateY(-5px);
+}
+
+/* Card Image */
+.card-img-top{
+    padding: 18px;
+    height: 13rem;
+    object-fit: contain;
+}
+
+/* Card Description */
+.card-text{
+    color: #6f7780;
+    font-size: .85rem;
+}
+
+/* Warning Button */
+.btn-warning{
+    font-weight: 700;
+    font-size: .8rem;
+    border-radius: 3px;
+}
+
+/* Card Title */
+.card-title{
+    font-weight: bold;
+}

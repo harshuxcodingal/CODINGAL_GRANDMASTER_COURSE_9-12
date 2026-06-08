@@ -1,0 +1,53 @@
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Body Styling */
+body {
+    background: #252525;
+    font-family: "Baloo Tamma 2", cursive;
+}
+
+/* Main Heading */
+.m-heading {
+    font-family: "Roboto Slab", serif;
+}
+
+/* Utility Class */
+.text-white {
+    color: white;
+}
+
+/* Hero Section */
+.main-container {
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("https://github.com/harshacc031-dot/img/blob/main/1.png?raw=true");
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Main Row */
+.main_row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Heading Inside Main Row */
+.main_row h1 {
+    font-size: 5rem;
+}
+
+/* Image Inside Main Row */
+.main_row img {
+    width: auto;
+    height: 100vh;
+}
