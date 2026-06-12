@@ -1,0 +1,90 @@
+/* General Styling */
+body{
+    background: linear-gradient(135deg, #1f1f1f, #343434);
+    font-family: "Barlow Semi Condensed", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* About Section */
+.about{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Main Heading */
+.m-heading{
+    font-family: "Roboto Slab", serif;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Sub Heading */
+.text-warning{
+    color: #ffc107 !important;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+/* Paragraph Styling */
+.about p{
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* Image Styling */
+.about img{
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+/* Image Hover Effect */
+.about img:hover{
+    transform: scale(1.05);
+}
+
+/* Button Styling */
+.btn-outline-warning{
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 18px;
+    border-width: 2px;
+    transition: 0.4s;
+}
+
+/* Button Hover */
+.btn-outline-warning:hover{
+    background-color: #ffc107;
+    color: black;
+    transform: translateY(-3px);
+}
+
+/* Highlighted Text */
+b.text-warning{
+    font-size: 18px;
+}
+
+/* Responsive Design */
+@media(max-width:768px){
+
+    .m-heading{
+        font-size: 2rem;
+    }
+
+    .about .row{
+        flex-direction: column;
+    }
+
+    .about .col-6{
+        max-width: 100%;
+        flex: 100%;
+        text-align: center;
+    }
+
+    .about p{
+        text-align: center;
+    }
+}
