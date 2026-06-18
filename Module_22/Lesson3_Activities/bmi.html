@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Age Calculator</h2>
+<form method="POST">
+    Weight (kg):
+    <input type="number" step="0.1" name="weight"><br><br>
+
+    Height (m):
+    <input type="number" step="0.01" name="height"><br><br>
+
+    <button type="submit">Calculate BMI</button>
+</form>
+
+{% if bmi %}
+<h2>BMI = {{ bmi }}</h2>
+{% endif %}
+</body>
+</html>

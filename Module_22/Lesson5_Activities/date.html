@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>Age Calculator</h2>
+<form method="POST">
+    Date 1:
+    <input type="date" name="date1">
+
+    Date 2:
+    <input type="date" name="date2">
+
+    <button type="submit">Find Difference</button>
+</form>
+
+{% if days is not none %}
+<h2>{{ days }} Days</h2>
+{% endif %}
+
+</body>
+</html>
