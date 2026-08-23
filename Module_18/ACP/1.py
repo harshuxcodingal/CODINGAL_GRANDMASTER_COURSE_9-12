@@ -1,8 +1,22 @@
-# Check the Probability
+from sklearn.tree import DecisionTreeClassifier
 
-favorable = int(input("Enter favorable outcomes: "))
-total = int(input("Enter total outcomes: "))
+# Sample data
+X = [
+    [25, 50000],
+    [35, 80000],
+    [45, 100000],
+    [20, 30000]
+]
 
-probability = favorable / total
+y = ["No", "Yes", "Yes", "No"]
 
-print("Probability =", probability)
+# Create model
+model = DecisionTreeClassifier()
+
+# Train model
+model.fit(X, y)
+
+# Predict
+prediction = model.predict([[30, 60000]])
+
+print("Prediction:", prediction[0])

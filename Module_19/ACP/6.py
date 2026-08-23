@@ -1,17 +1,23 @@
-import random
+import pandas as pd
 
-data = [10, 20, 30, 40, 50]
+# Sample User Data
+data = {
+    "User": ["A", "B", "C", "D", "E"],
+    "Movie": ["Avatar", "Avatar", "Avengers", "Avatar", "Interstellar"]
+}
 
-sample_means = []
+# Create DataFrame
+df = pd.DataFrame(data)
 
-for i in range(100):
-    sample = random.choices(data, k=3)
-    mean = sum(sample) / len(sample)
-    sample_means.append(mean)
+print("Dataset:")
+print(df)
 
-print("First 10 Sample Means:")
-print(sample_means[:10])
+# Count Movie Popularity
+movie_count = df["Movie"].value_counts()
 
-overall_mean = sum(sample_means) / len(sample_means)
+print("\nRecommended Movies:")
+print(movie_count)
 
-print("Average of Sample Means =", overall_mean)
+# Most Recommended Movie
+print("\nTop Recommendation:")
+print(movie_count.index[0])

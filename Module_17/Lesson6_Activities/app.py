@@ -1,35 +1,24 @@
-# ==================================
-# POWER SET
-# ==================================
+import random
 
-arr = [1, 2, 3]
+# Puppies Data Sampling
+puppies = [2.1, 2.5, 3.0, 2.8, 3.2, 2.9, 2.4, 3.1]
 
-n = len(arr)
+sample = random.sample(puppies, 3)
 
-print("Power Set:")
+print("Population:", puppies)
+print("Sample:", sample)
 
-for i in range(1 << n):
-    subset = []
+# Central Limit Theorem
+data = [10, 20, 30, 40, 50]
 
-    for j in range(n):
-        if i & (1 << j):
-            subset.append(arr[j])
+means = []
 
-    print(subset)
+for _ in range(100):
+    sample = random.choices(data, k=3)
 
+    mean = sum(sample) / len(sample)
 
-# ==================================
-# FLIP BITS
-# ==================================
+    means.append(mean)
 
-num = int(input("\nEnter a number: "))
-
-bits = num.bit_length()
-
-mask = (1 << bits) - 1
-
-flipped = num ^ mask
-
-print("Original Binary :", bin(num))
-print("Flipped Binary  :", bin(flipped))
-print("Flipped Number  :", flipped)
+print("\nFirst 10 Sample Means:")
+print(means[:10])

@@ -1,36 +1,50 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from keras.models import Sequential
+from keras.layers import Dense
 
-# Sample Dataset
-X = np.array([1, 2, 3, 4, 5, 6, 7, 8]).reshape(-1, 1)
-y = np.array([2, 4, 5, 4, 5, 7, 8, 9])
+# Load dataset
+df = pd.read_csv("Pokemon.csv")
 
-# Create Regression Model
-model = LinearRegression()
+# Drop unnecessary columns (adjust if needed)
+df = df.drop(['#', 'Name'], axis=1)
 
-# Train Model
-model.fit(X, y)
+# Convert categorical column (if any)
+le = LabelEncoder()
+if df['Type 1'].dtype == 'object':
+    df['Type 1'] = le.fit_transform(df['Type 1'])
+if 'Type 2' in df.columns:
+    df['Type 2'] = le.fit_transform(df['Type 2'].astype(str))
 
-# Predict Values
-y_pred = model.predict(X)
+# Target variable
+X = df.drop('Legendary', axis=1)
+y = df['Legendary']
 
-# Model Statistics
-print("Coefficient:", model.coef_[0])
-print("Intercept:", model.intercept_)
-print("Mean Squared Error:", mean_squared_error(y, y_pred))
-print("R2 Score:", r2_score(y, y_pred))
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=0
+)
 
-# Plot Original Data
-plt.scatter(X, y, label="Actual Data")
+# Feature scaling
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
 
-# Plot Regression Line
-plt.plot(X, y_pred, linewidth=2, label="Regression Line")
+# ANN model
+model = Sequential()
 
-plt.title("Regression Analysis with Plot")
-plt.xlabel("X Values")
-plt.ylabel("Y Values")
-plt.legend()
+model.add(Dense(12, activation='relu', input_dim=X_train.shape[1]))
+model.add(Dense(8, activation='relu'))
+model.add(Dense(1, activation='sigmoid'))  # classification
 
-plt.show()
+# Compile model
+model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
+
+# Train model
+model.fit(X_train, y_train, epochs=50, batch_size=10, verbose=0)
+
+# Predictions
+y_pred = (model.predict(X_test) > 0.5)
+
+print(y_pred[:10])

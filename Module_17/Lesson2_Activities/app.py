@@ -1,25 +1,15 @@
-# ==================================
-# ONES AND ZEROS
-# ==================================
+# Union
+A = {1, 2, 3, 4}
+B = {3, 4, 5, 6}
 
-num = int(input("Enter a number: "))
+print("Union =", A | B)
 
-binary = bin(num)[2:]
+# Intersection
+print("Intersection =", A & B)
 
-ones = binary.count("1")
-zeros = binary.count("0")
+# Addition Rule
+PA = float(input("Enter P(A): "))
+PB = float(input("Enter P(B): "))
+PAB = float(input("Enter P(A and B): "))
 
-print("\nBinary:", binary)
-print("Number of 1s:", ones)
-print("Number of 0s:", zeros)
-
-# ==================================
-# NTH BIT SET OR NOT
-# ==================================
-
-n = int(input("\nEnter position of bit to check: "))
-
-if num & (1 << (n - 1)):
-    print(f"{n}th bit is SET")
-else:
-    print(f"{n}th bit is NOT SET")
+print("P(A Union B) =", PA + PB - PAB)

@@ -1,45 +1,40 @@
-from sklearn.datasets import load_iris
+import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.preprocessing import StandardScaler
+from keras.models import Sequential
+from keras.layers import Dense
 
-# Load Iris Dataset
-iris = load_iris()
+# Load dataset
+df = pd.read_csv("FuelConsumption.csv")
 
-X = iris.data
-y = iris.target
+# Features and target (change column names as per dataset)
+X = df.drop("FuelConsumption", axis=1)
+y = df["FuelConsumption"]
 
-# Check Classes
-print("Classes:", iris.target_names)
-
-# Split Dataset
+# Train-test split
 X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    random_state=42
+    X, y, test_size=0.2, random_state=0
 )
 
-# Create Logistic Regression Model
-model = LogisticRegression(max_iter=200)
+# Feature scaling
+sc = StandardScaler()
+X_train = sc.fit_transform(X_train)
+X_test = sc.transform(X_test)
 
-# Train Model
-model.fit(X_train, y_train)
+# ANN model
+model = Sequential()
 
-# Predict
+model.add(Dense(10, activation='relu', input_dim=X_train.shape[1]))
+model.add(Dense(10, activation='relu'))
+model.add(Dense(1))   # regression output (no activation)
+
+# Compile model
+model.compile(optimizer='adam', loss='mean_squared_error')
+
+# Train model
+model.fit(X_train, y_train, epochs=100, batch_size=10, verbose=0)
+
+# Predictions
 y_pred = model.predict(X_test)
 
-# Accuracy
-print("\nAccuracy:", accuracy_score(y_test, y_pred))
-
-# Confusion Matrix
-print("\nConfusion Matrix:")
-print(confusion_matrix(y_test, y_pred))
-
-# Sample Prediction
-sample = [[5.1, 3.5, 1.4, 0.2]]
-
-prediction = model.predict(sample)
-
-print("\nPredicted Flower Class:")
-print(iris.target_names[prediction[0]])
+print(y_pred[:5])

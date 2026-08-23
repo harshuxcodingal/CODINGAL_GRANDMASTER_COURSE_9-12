@@ -1,83 +1,52 @@
+# Titanic Survival Prediction
+
 import pandas as pd
-import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
-import math
+from sklearn.metrics import accuracy_score
 
-# Load Dataset
-data = pd.read_csv("insurance_data.csv")
+# Create Dataset
+data = {
+    "Pclass": [1, 3, 2, 1, 3, 2, 1, 3],
+    "Age": [22, 38, 26, 35, 28, 19, 45, 30],
+    "Fare": [7.25, 71.28, 10.50, 53.10, 8.05, 13.00, 80.00, 7.90],
+    "Survived": [0, 1, 1, 1, 0, 1, 1, 0]
+}
 
-# Display first few records
-print(data.head())
+df = pd.DataFrame(data)
 
-# Visualize Dataset
-plt.scatter(
-    data["age"],
-    data["bought_insurance"],
-    color="blue",
-    marker="o"
-)
-
-plt.xlabel("Age")
-plt.ylabel("Bought Insurance")
-plt.title("Insurance Purchase Dataset")
-plt.show()
+print("Titanic Dataset:")
+print(df)
 
 # Features and Target
-X = data[["age"]]
-y = data["bought_insurance"]
+X = df[["Pclass", "Age", "Fare"]]
+y = df["Survived"]
 
 # Split Dataset
 X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    random_state=42
+    X, y, test_size=0.25, random_state=42
 )
 
-# Create Logistic Regression Model
-classifier = LogisticRegression()
-
 # Train Model
-classifier.fit(X_train, y_train)
+model = LogisticRegression()
+model.fit(X_train, y_train)
 
-# Predictions
-predicted = classifier.predict(X_test)
+# Prediction
+y_pred = model.predict(X_test)
 
-# Probability Predictions
-probability = classifier.predict_proba(X_test)
+# Accuracy
+accuracy = accuracy_score(y_test, y_pred)
 
 print("\nPredicted Values:")
-print(predicted)
+print(y_pred)
 
-print("\nPrediction Probabilities:")
-print(probability)
+print("\nAccuracy:", round(accuracy * 100, 2), "%")
 
-# Model Accuracy
-accuracy = classifier.score(X_test, y_test)
-print("\nAccuracy:", accuracy)
+# Predict New Passenger
+new_passenger = [[2, 25, 20]]
+prediction = model.predict(new_passenger)
 
-# Model Parameters
-print("\nCoefficient:", classifier.coef_)
-print("Intercept:", classifier.intercept_)
-
-# Sigmoid Function
-def sigmoid(x):
-    return 1 / (1 + math.exp(-x))
-
-# Custom Prediction Function
-def insurance_prediction(age):
-    
-    coefficient = classifier.coef_[0][0]
-    intercept = classifier.intercept_[0]
-
-    z = coefficient * age + intercept
-
-    return sigmoid(z)
-
-# Test Predictions
-print("\nProbability for Age 35:")
-print(insurance_prediction(35))
-
-print("\nProbability for Age 43:")
-print(insurance_prediction(43))
+if prediction[0] == 1:
+    print("\nPassenger is likely to Survive")
+else:
+    print("\nPassenger is likely NOT to Survive")

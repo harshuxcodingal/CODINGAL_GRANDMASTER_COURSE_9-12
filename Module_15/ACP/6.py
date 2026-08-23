@@ -1,21 +1,37 @@
-# Advanced Plots using Seaborn
+# Capstone Project - Student Performance Analysis
 
 import pandas as pd
-import seaborn as sns
 import matplotlib.pyplot as plt
 
-# Create DataFrame
+# Create Dataset
 data = {
-    "Marks": [85, 90, 78, 92, 88, 95, 80, 87]
+    "Name": ["Harshal", "Rahul", "Priya", "Sneha", "Amit"],
+    "Marks": [85, 90, 78, 92, 88]
 }
 
+# Create DataFrame
 df = pd.DataFrame(data)
 
-# Histogram Plot
-sns.histplot(df["Marks"], bins=5)
+# Display Data
+print("Student Data:")
+print(df)
 
-# Add title
-plt.title("Histogram of Student Marks")
+# Calculate Statistics
+average_marks = df["Marks"].mean()
+highest_marks = df["Marks"].max()
+lowest_marks = df["Marks"].min()
 
-# Display graph
+print("\nAverage Marks:", average_marks)
+print("Highest Marks:", highest_marks)
+print("Lowest Marks:", lowest_marks)
+
+# Create Bar Chart
+plt.bar(df["Name"], df["Marks"])
+
+# Add Title and Labels
+plt.title("Student Performance Analysis")
+plt.xlabel("Students")
+plt.ylabel("Marks")
+
+# Display Graph
 plt.show()

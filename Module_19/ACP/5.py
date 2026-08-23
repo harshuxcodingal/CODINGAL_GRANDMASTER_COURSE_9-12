@@ -1,36 +1,23 @@
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
+import pandas as pd
 
-# Sample Dataset
-X = np.array([1, 2, 3, 4, 5, 6, 7, 8]).reshape(-1, 1)
-y = np.array([2, 4, 5, 4, 5, 7, 8, 9])
+# Sample User Data
+data = {
+    "User": ["A", "B", "C", "D", "E"],
+    "Movie": ["Avatar", "Avatar", "Avengers", "Avatar", "Interstellar"]
+}
 
-# Create Regression Model
-model = LinearRegression()
+# Create DataFrame
+df = pd.DataFrame(data)
 
-# Train Model
-model.fit(X, y)
+print("Dataset:")
+print(df)
 
-# Predict Values
-y_pred = model.predict(X)
+# Count Movie Popularity
+movie_count = df["Movie"].value_counts()
 
-# Model Statistics
-print("Coefficient:", model.coef_[0])
-print("Intercept:", model.intercept_)
-print("Mean Squared Error:", mean_squared_error(y, y_pred))
-print("R2 Score:", r2_score(y, y_pred))
+print("\nRecommended Movies:")
+print(movie_count)
 
-# Plot Original Data
-plt.scatter(X, y, label="Actual Data")
-
-# Plot Regression Line
-plt.plot(X, y_pred, linewidth=2, label="Regression Line")
-
-plt.title("Regression Analysis with Plot")
-plt.xlabel("X Values")
-plt.ylabel("Y Values")
-plt.legend()
-
-plt.show()
+# Most Recommended Movie
+print("\nTop Recommendation:")
+print(movie_count.index[0])

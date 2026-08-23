@@ -1,6 +1,4 @@
-// ===============================
-// Sort and Reverse Strings
-// ===============================
+
 
 let fruits = ["Mango", "Apple", "Banana", "Orange"];
 

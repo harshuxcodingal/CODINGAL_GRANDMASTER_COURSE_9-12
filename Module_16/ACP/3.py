@@ -1,52 +1,25 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, confusion_matrix
+# Quartiles, Quantiles and Interquartile Range
 
-# Sample Dataset
-data = {
-    "Age": [22, 25, 47, 52, 46, 56, 55, 60, 62, 61],
-    "Buy": [0, 0, 1, 1, 1, 1, 1, 1, 1, 1]
-}
+import numpy as np
 
-df = pd.DataFrame(data)
+# Dataset
+data = [10, 15, 20, 25, 30, 35, 40, 45, 50]
 
-# Features and Target
-X = df[["Age"]]
-y = df["Buy"]
+# Quartiles
+Q1 = np.percentile(data, 25)
+Q2 = np.percentile(data, 50)  # Median
+Q3 = np.percentile(data, 75)
 
-# Split Dataset
-X_train, X_test, y_train, y_test = train_test_split(
-    X,
-    y,
-    test_size=0.2,
-    random_state=42
-)
+# Interquartile Range
+IQR = Q3 - Q1
 
-# Create Model
-model = LogisticRegression()
+# Quantiles
+quantiles = np.quantile(data, [0.25, 0.50, 0.75])
 
-# Train Model
-model.fit(X_train, y_train)
-
-# Predictions
-y_pred = model.predict(X_test)
-
-# Accuracy
-print("Accuracy:", accuracy_score(y_test, y_pred))
-
-# Confusion Matrix
-print("\nConfusion Matrix:")
-print(confusion_matrix(y_test, y_pred))
-
-# New Prediction
-age = [[40]]
-
-prediction = model.predict(age)
-
-print("\nPrediction for Age 40:")
-
-if prediction[0] == 1:
-    print("Will Buy")
-else:
-    print("Will Not Buy")
+# Display Results
+print("Data:", data)
+print("Q1 (First Quartile):", Q1)
+print("Q2 (Median):", Q2)
+print("Q3 (Third Quartile):", Q3)
+print("Interquartile Range (IQR):", IQR)
+print("Quantiles:", quantiles)
